@@ -12,7 +12,7 @@
     <br>
 
     {% for product in products %}
-        <img src="{{ product.image.url }}" alt="">
+        <img src="{{ product.image.url }}" alt="" height="200px">
         <h3>{{ product }}</h3>
         <p>{{ product.description }}</p>
         <p>${{ product.price }}</p>

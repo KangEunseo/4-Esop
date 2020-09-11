@@ -267,6 +267,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+.idea/
 .idea/.gitignore
 .idea/Esop.iml
 .idea/inspectionProfiles/
@@ -275,3 +276,5 @@ $RECYCLE.BIN/
 .idea/vcs.xml
 
 **/migrations/
+
+media/

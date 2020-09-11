@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+    성공적으로 로그아웃 되었습니다.
+    <a href="{% url 'login' %}">다시 로그인</a>
+{% endblock %}
