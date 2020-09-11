@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Sign in{% endblock %}
+{% block title %}Sign up{% endblock %}
 
 {% block content %}
-    로그인 정보를 입력하세요.
+    회원가입 정보를 입력하세요.
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Sign in">
+        <input type="submit" value="Sign up">
     </form>
 {% endblock %}
