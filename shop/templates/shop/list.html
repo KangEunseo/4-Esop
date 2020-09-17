@@ -12,10 +12,11 @@
     <br>
 
     {% for product in products %}
-        <img src="{{ product.image.url }}" alt="" height="200px">
         <h3>{{ product }}</h3>
+        <img src="{{ product.image.url }}" alt="" height="200px">
         <p>{{ product.description }}</p>
         <p>${{ product.price }}</p>
         <a href="{{ product.get_absolute_url }}">View Detail</a>
+        <hr width="80%" align="left">
     {% endfor %}
 {% endblock %}
