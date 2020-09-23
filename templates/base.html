@@ -11,6 +11,14 @@
 <a href="{% url 'login' %}">Sign in</a>
 <a href="{% url 'register' %}">Sign up</a>
 {% endif %}
+<a href="{% url 'cart:detail' %}">
+    Cart
+    {% if cart|length > 0 %}
+        ${{ cart.get_product_total }} with {{ cart|length }} items
+    {% else %}
+        : Empty
+    {% endif %}
+</a>
 
 <br>
 

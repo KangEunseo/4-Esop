@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Shopping Cart{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Remove</th>
+                <th>Unit Price</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in cart %}
+            {% with Product=item.product %}
+            <tr>
+                <td><a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" alt=""></a></td>
+                <td>{{ product.name }}</td>
+                <td>
+                    <form action="{% url 'cart:product_add' product.id %}" method="post">
+                        {% csrf_token %}
+                        {{ item.quantity_form.quantity }}
+                        {{ item.quantity_form.is_update }}
+                        <input type="submit" value="Update">
+                    </form>
+                </td>
+                <td><a href="{% url 'cart:product_remove' product.id %}">Remove</a></td>
+                <td>${{ item.price }}</td>
+                <td>${{ item.total_price }}</td>
+            </tr>
+            {% endwith %}
+        {% endfor %}
+            <tr>
+                <td>Total</td>
+                <td colspan="4"></td>
+                <td>${{ cart.get_product_total|floatformat:"2" }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        <a href="{% url 'shop:product_all' %}">계속 쇼핑하기</a>
+    </p>
+{% endblock %}
