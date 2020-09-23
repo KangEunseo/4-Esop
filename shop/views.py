@@ -21,5 +21,6 @@ def product_in_category(request, category_slug=None):
 def product_detail(request, id, product_slug):
     product = get_object_or_404(Product, id=id, slug=product_slug)
     add_to_cart = AddProductForm(initial={'quantity': 1})
+    cart = Cart(request)
 
-    return render(request, 'shop/detail.html', {'product': product, 'add_to_cart': add_to_cart})
+    return render(request, 'shop/detail.html', {'product': product, 'add_to_cart': add_to_cart, 'cart': cart})
