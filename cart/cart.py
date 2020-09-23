@@ -35,6 +35,7 @@ class Cart:
             yield item
 
     def add(self, product, quantity=1, is_update=False):  # cart에 product 추가
+        product.id = str(product.id)
         if product.id not in self.cart:
             self.cart[product.id] = {'quantity': 0, 'price': str(product.price)}
 
