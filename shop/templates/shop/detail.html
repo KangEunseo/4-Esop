@@ -7,4 +7,11 @@
     <h1>{{ product }}</h1>
     <p>Price: ${{ product.price }}</p>
     <p>Description: {{ product.description|linebreaks }}</p>
+    <p>
+    <form action="{% url 'cart:product_add' product.id %}" method="post">
+        {% csrf_token %}
+        {{ add_to_cart }}
+        <input type="submit" value="장바구니에 추가">
+    </form>
+    </p>
 {% endblock %}
