@@ -13,7 +13,7 @@
 
     {% for product in products %}
         <h3>{{ product }}</h3>
-        <img src="{{ product.image.url }}" alt="" height="200px">
+        <img src="{{ product.image.url }}" alt="" width="200px">
         <p>{{ product.description }}</p>
         <p>${{ product.price }}</p>
         <a href="{{ product.get_absolute_url }}">View Detail</a>

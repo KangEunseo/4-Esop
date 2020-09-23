@@ -38,7 +38,6 @@ class Cart:
         product.id = str(product.id)
         if product.id not in self.cart:
             self.cart[product.id] = {'quantity': 0, 'price': str(product.price)}
-
         if is_update:
             self.cart[product.id]['quantity'] = quantity
         else:
@@ -51,8 +50,8 @@ class Cart:
         self.session.modified = True
 
     def remove(self, product):  # cart에서 product 삭제
-        if product.id in self.cart:
-            del self.cart[product.id]
+        if str(product.id) in self.cart:
+            del self.cart[str(product.id)]
             self.save()
 
     def clear(self):  # cart를 비움

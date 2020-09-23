@@ -16,9 +16,13 @@
         </thead>
         <tbody>
         {% for item in cart %}
-            {% with Product=item.product %}
+            {% with product=item.product %}
             <tr>
-                <td><a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" alt=""></a></td>
+                <td>
+                    <a href="{{ product.get_absolute_url }}">
+                        <img src="{{ product.image.url }}" alt="" width="150px">
+                    </a>
+                </td>
                 <td>{{ product.name }}</td>
                 <td>
                     <form action="{% url 'cart:product_add' product.id %}" method="post">
