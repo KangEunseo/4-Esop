@@ -50,8 +50,9 @@ class Cart:
         self.session.modified = True
 
     def remove(self, product):  # cart에서 product 삭제
-        if str(product.id) in self.cart:
-            del self.cart[str(product.id)]
+        product.id = str(product.id)
+        if product.id in self.cart:
+            del self.cart[product.id]
             self.save()
 
     def clear(self):  # cart를 비움
